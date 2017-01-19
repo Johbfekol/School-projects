@@ -6,10 +6,12 @@ import java.util.Random;
 public class Harkka1 {
 
 	public static void main(String[] args) {
-		int A[] = new int[1000000];
-		populateArray(A);
-		//System.out.println("Before Sorting: ");   	// Testauksessa tarvittava taulukon tulostus
-		//printArray(A);				// ennen järjestämistä
+		int taul_koko = 1000000;
+		int A[] = new int[taul_koko];
+		int lukuvali = 3000000;
+		taulukontaytto(A, lukuvali);
+		//System.out.println("Before Sorting: ");   // Testauksessa tarvittava taulukon tulostus
+		//printArray(A);							// ennen järjestämistä
 		Calendar aika1 = Calendar.getInstance();
 		long alkuaika = aika1.getTimeInMillis();
 		//isort sortattu = new isort();   	// Lisäysjärjestämisellä järjestäminen
@@ -20,19 +22,19 @@ public class Harkka1 {
 		long loppuaika = aika2.getTimeInMillis();
 		long aikaa = loppuaika - alkuaika;
 		System.out.println("\nAfter Sorting: ");
-		printArray(A);
+		taul_tulosta(A);
 		System.out.println("\nAikaa kului:" );
 		System.out.println(aikaa);
 	}
 
-	public static void printArray(int[] B) {
+	public static void taul_tulosta(int[] B) {
 		System.out.println(Arrays.toString(B));
 	}
 
-	public static void populateArray(int[] B) {
+	public static void taulukontaytto(int[] B, int lukuvali) {
 		Random randomi = new Random ();
 		for (int i = 0; i < B.length; i++) {
-			B[i] = randomi.nextInt(300000);
+			B[i] = randomi.nextInt(lukuvali);
 		}
 	}
 }
