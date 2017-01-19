@@ -8,8 +8,8 @@ public class Harkka1 {
 	public static void main(String[] args) {
 		int A[] = new int[1000000];
 		populateArray(A);
-		//System.out.println("Before Sorting: ");   // Testauksessa tarvittava taulukon tulostus
-		//printArray(A);							// ennen järjestämistä
+		//System.out.println("Before Sorting: ");   	// Testauksessa tarvittava taulukon tulostus
+		//printArray(A);				// ennen järjestämistä
 		Calendar aika1 = Calendar.getInstance();
 		long alkuaika = aika1.getTimeInMillis();
 		//isort sortattu = new isort();   	// Lisäysjärjestämisellä järjestäminen
