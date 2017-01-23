@@ -1,4 +1,4 @@
-#define F_CPU // 8000000UL define CPU speed for 8 MHz
+#define F_CPU 8000000UL // define CPU speed for 8 MHz
 #include <avr/io.h> // IO functions
 #include <util/delay.h> // Delay functions
 int main(void) {
