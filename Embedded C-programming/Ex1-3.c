@@ -7,7 +7,6 @@
 
 #define F_CPU 8000000UL // CPU speed @ 8 MHz
 #include <avr/io.h>
-#include <util/delay.h>
 #include <avr/interrupt.h>
 
 /*Interrupt vectors, just FYI						*/
