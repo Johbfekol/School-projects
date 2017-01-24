@@ -1,6 +1,6 @@
 /*
  * GccApplication1.c
- *
+ * 
  * Created: 24.1.2017 16:08:31
  * Author : u97479
  */ 
@@ -9,42 +9,41 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdlib.h>
-#include <avr/interrupt.h>
 
+/*Function prototypes*/
 static inline uint8_t debounce(volatile uint8_t *, const uint8_t);
 static inline uint8_t blink(void);
 
-
-int main(void)
-{
-    DDRB = 0xFF;  // PORTB as input
-    PORTB = 0xFF; // PORTB default values off
-    DDRD = 0x00;  // PORTD as inputs
+/*Main function*/
+int main(void) {	
+	DDRB = 0xFF;  // PORTB as input
+	PORTB = 0xFF; // PORTB default values off
+	DDRD = 0x00;  // PORTD as inputs
 	uint8_t number = 0;
 	uint8_t counter = 0;
-	while (PIND&0x80) {   // Loops until SW7 is pressed
-		counter++;
-		} 
-
+	while (PIND&0x80) counter++;   // Loops until SW7 is pressed
+		
 	srand(counter);   // generates a random seed based on the counter valule
 	number = rand() % 3; // a random number from 0 to 2
-	number++;
+	number++;            // now it's from 1 to 3
 
-	while (1) 
-    {
+	while (1) {
 		if(debounce(&PIND, PD0) && number == 1 ) {
 			blink();
 			PORTB =~ number;
 		}
+		
 		if(debounce(&PIND, PD1)&& number == 2 ) {
 			blink();
 			PORTB =~ number;
 		}
+		
 		if(debounce(&PIND, PD2)&& number == 3 ) {
 			blink();
 			PORTB =~ number;
 		}
-    }
+   	}
+	
 	return 0;
 }
 
@@ -55,6 +54,7 @@ static inline uint8_t blink(void) {
 		PORTB =~ PORTB;
 		_delay_ms(500);
 	}
+	
 	return 0;
 }
 
@@ -69,5 +69,6 @@ static inline uint8_t debounce(volatile uint8_t *pinReg, const uint8_t pin) {
 			return 1;
 		}
 	}
+	
 	return 0;
 }
