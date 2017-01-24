@@ -31,7 +31,7 @@ int main(void) {
 }
 
 static inline uint8_t debounce(volatile uint8_t *pinReg, const uint8_t pin) {
-	if(!(pinReg & (1 << pin))) {
+	if(!(*pinReg & (1 << pin))) {
 		//pin grounded wait 100ms
 		_delay_ms(100);
 		
@@ -41,4 +41,6 @@ static inline uint8_t debounce(volatile uint8_t *pinReg, const uint8_t pin) {
 			return 1;
 		}
 	}
+	
+	return 0;
 }
