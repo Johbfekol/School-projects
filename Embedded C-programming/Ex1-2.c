@@ -9,6 +9,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+
 /* function prototype */
 static inline uint8_t debounce(volatile uint8_t *, const uint8_t);
 
@@ -25,7 +26,8 @@ int main(void) {
 		if (debounce(&PIND, PD1)) counter--; // decreases with 2nd button pressed
 		if (debounce(&PIND, PD2)) counter = 0; // resets counter with 3rd button pressed
 		if (counter > 5) PORTB = 0x00;	// if counter is larger than 5 then turns all leds on			   
-    }
+		else PORTB = 0xFF;
+	}
 	
 	return 0;
 }
@@ -41,6 +43,5 @@ static inline uint8_t debounce(volatile uint8_t *pinReg, const uint8_t pin) {
 			return 1;
 		}
 	}
-	
 	return 0;
 }
