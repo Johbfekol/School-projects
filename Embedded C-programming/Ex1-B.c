@@ -12,7 +12,7 @@
 
 /*Function prototypes*/
 static inline uint8_t debounce(volatile uint8_t *, const uint8_t);
-static inline uint8_t blink(void);
+void blink():
 
 /*Main function*/
 int main(void) {	
@@ -47,15 +47,13 @@ int main(void) {
 	return 0;
 }
 
-static inline uint8_t blink(void) {
+void blink() {
 	for (int i = 0; i < 5; i++) {
 		PORTB = 0x00;
 		_delay_ms(500);
 		PORTB =~ PORTB;
 		_delay_ms(500);
 	}
-	
-	return 0;
 }
 
 static inline uint8_t debounce(volatile uint8_t *pinReg, const uint8_t pin) {
