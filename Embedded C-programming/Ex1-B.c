@@ -12,7 +12,7 @@
 
 /*Function prototypes*/
 static inline uint8_t debounce(volatile uint8_t *, const uint8_t);
-void blink():
+void blink();
 
 /*Main function*/
 int main(void) {	
