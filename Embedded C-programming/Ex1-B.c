@@ -2,7 +2,7 @@
  * GccApplication1.c
  * 
  * Created: 24.1.2017 16:08:31
- * Author : u97479
+ * Author : Samu Haapoja
  */ 
 
 #define F_CPU 8000000UL // CPU speed @ 8 MHz
